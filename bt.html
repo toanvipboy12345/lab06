@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #errName, #errPass, #errName2{
+        display: none;
+        color: red; 
+    }
+</style>
+<body>
+    <form action="" id="form">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" onfocusout="checkUserName()">
+            <p id="errName">Không được bỏ trống</p>
+            <p id="errName2">Phải có @</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <p id="errPass">Không được bỏ trống</p>
+        </div>
+        <div class="form-group">
+            <label for="remember">Remember</label>
+            <input type="checkbox" name="remember" id="remember">
+        </div>
+        <button type="submit" onclick="validateForm(event)">Login</button>
+    </form>
+</body>
+<script>
+    function checkUserName() {
+        var username = document.getElementById("username").value;
+        var errName = document.getElementById("errName");
+        if (username === "") {
+            errName.style.display = "block";
+        }
+    }
+    var password = document.getElementById("password").addEventListener('blur', function() {
+        var errPass = document.getElementById("errPass");
+        if (this.value === "") {
+            errPass.style.display = "block";
+        }
+    });
+
+    var password = document.getElementById("username").addEventListener('input', function() {
+
+       var username = document.getElementById("username").value;
+       //var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+       var emailRegex = /@/
+       var errName2 = document.getElementById("errName2");
+        if (!emailRegex.test(username)) {
+           errName2.style.display = "block";
+       }
+       else {
+            errName2.style.display = "none";
+       }
+
+
+    });
+
+</script>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form {
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        border-radius: 2px;
+        color: white;
+        cursor: pointer;
+
+    }
+
+</style>
+<body>
+    <!-- form login tạo từ table -->
+     <form action="" method="POST" id="form">
+        <table>
+
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username">
+                <br><label for="" id="txtUserError"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password">
+                    <br><label for="" id="txtpassError"></label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit">Gửi</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script>
+//Kiểm tra login
+    document.getElementById('form').addEventListener('submit', function(event){
+        event.preventDefault();
+        document.getElementById('txtuserError').innerHTML = ''; // Đặt giá trị innerHTML thành chuỗi rỗng
+    document.getElementById('txtpassError').innerHTML = '';
+        let username = document.getElementsByName('username')[0].value;
+        let password = document.getElementsByName('password')[0].value;
+
+        if(username == ''){
+            document.getElementById('txtuserError').innerHTML = 'Vui lòng nhập tên đăng nhập và mật khẩu';
+            return false;
+        }
+        else if(password == ''){
+            document.getElementById('txtpassError').innerHTML = 'Vui lòng nhập tên đăng nhập và mật khẩu';
+            return false;
+        }        
+    });
+</script>
+</html>

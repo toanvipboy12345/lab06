@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Ảnh</th>
+          <th>Tên sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody id="list-cart">
+      </tbody>
+    </table>
+    <script>s
+      // Dữ liệu giỏ hàng
+      var listCart = [
+        {
+          id: 'sp1',
+          name: 'Iphone 15',
+          price: 1000000,
+          image: 'https://th.bing.com/th/id/OIP.cifHwgmzXZRcwr9fKU7QEAHaHa?w=184&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+          quality: 5
+        },
+        {
+          id: 'sp2',
+          name: 'Iphone 15',
+          price: 1000000,
+          image: 'https://th.bing.com/th/id/OIP.cifHwgmzXZRcwr9fKU7QEAHaHa?w=184&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+          quality: 5
+        }
+      ];
+
+      // Hàm render một sản phẩm
+      function renderCart(cart) {
+        var renderCart = `<tr>
+                <td><img style="width: 10rem" src="`+cart.image+`" alt="`+cart.name+`"></td>
+                <td>`+cart.name+`</td>
+                <td>`+cart.price+`</td>
+                <td>
+                  <button class="qty qty-lus" onclick="increaseQuality('`+cart.id+`')">+</button>
+                  `+cart.quality+`
+                  <button class="qty qty-abstract" onclick="abstract('`+cart.id+`')">-</button>
+                </td>
+                <td><button>xóa</button></td>
+            </tr>`;
+        return renderCart;
+      }
+
+      // Hàm render danh sách giỏ hàng
+      function renderListCart(cart) {
+        var content = ''; // Tạo biến content để lưu trữ các hàng sản phẩm
+        for (let i = 0; i < cart.length; i++) {
+          content += renderCart(cart[i]); // Thêm từng sản phẩm vào content
+        }
+        document.getElementById("list-cart").innerHTML = content; 
+      }
+
+      renderListCart(listCart);
+
+
+      function abstract(id) {
+        for(let i = 0; i < listCart.length; i++) {
+          if (listCart[i].id === id && listCart[i].quality > 0) {
+            listCart[i].quality--; 
+          }
+        }
+        renderListCart(listCart); // Render lại danh sách giỏ hàng sau khi cập nhật
+      }
+
+
+      function increaseQuality(id) {
+        for(let i = 0; i < listCart.length; i++) {
+          if (listCart[i].id === id) {
+            listCart[i].quality++; 
+          }
+        }
+        renderListCart(listCart); // Render lại danh sách giỏ hàng sau khi cập nhật
+      }
+    </script>
+  </body>
+</html>

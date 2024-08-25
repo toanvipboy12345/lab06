@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form {
+        margin: 0 auto;
+        width: 200px;
+    }
+    label, input {
+        display: block;
+        margin-bottom: 10px;
+    }
+    button {
+        margin-top: 10px;
+    }
+    input[type="username"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    form{
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        background-color: #f1f1f1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        width: 20%;
+    }
+</style>
+<body>
+<form action="" id="form">
+    <label for="username">Username:</label><br>
+    <input type="username" id="username" name="username"><br>
+    <label for="pwd">Password:</label><br>
+    <input type="password" id="pwd" name="pwd"><br>
+    <button type="submit">Go</button>
+</form>
+<script>
+    const form = document.getElementById("form");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const pwd = document.getElementById("pwd").value;
+        if(username === "" || pwd ===""){
+            alert("Please fill in all fields");
+        }
+
+    });
+</script>
+</html>

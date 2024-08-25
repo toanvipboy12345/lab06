@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 50px;
+            border: 1px solid black;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="DOM_id">DOM Element</h2>
+    <div class="box">
+        <p>Box 1</p>
+    </div>
+    <div class="box">
+        <p>Box2</p>
+    </div>
+    <div class="box">
+        <p>Box3</p>
+    </div>
+</body>
+<script>
+    //DOM Element
+    //Tương tác với thẻ HTML thông qua thuộc tính ID
+    var element = document.getElementById('DOM_id');
+    console.log(element);
+    element.style.color = 'red';
+    //Tương tác với thẻ HTML thông qua class name
+    var elementClass = document.getElementsByClassName('box')
+    //Tương tác với HTML thông qua thẻ html
+    var elementTag = document.getElementsByTagName('div')
+    console.log(elementTag);
+    //Tương tác với HTML thông qua querySelector
+    var elementQuery = document.querySelector('div.box p');
+    
+</script>
+</html>

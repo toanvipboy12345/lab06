@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Đối tượng
+        //khai báo đối tượng
+        //syntax: cách 1: var name = new Object();
+        //syntax: cách 2: var name = {};
+        //var person = {
+        //    name: "John Doe",
+         //   age: 30,
+            city: "New York"
+        //};
+        //GÁN thuộc tính đối tượng/ khai báo thuộc tính
+        //name_Object = value
+        var person = new Object();
+        person.name = "Jane Doe";
+        person.age = 28;
+        person.city = "Los Angeles";
+        console.log(person);
+        //
+        var object3 = {
+            name: "John Doe",
+            age: 30,
+            city: "New York"
+        }
+        console.log(object3);
+        var object4 = {
+            info: function() {
+                document.write("siu")
+            },
+        }
+        object4.info();
+        //Khai báo thêm phương thức đối tượng của object3
+        object3.info() = function() {
+            document.write("Hello");
+        };
+        object3.info();
+        //Chú ý: Khai báo 
+    </script>
+</body>
+</html>
